@@ -1,0 +1,1188 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Web & UI/UX Design</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #0c0a10;
+  --text: #f7f3fa;
+  --muted: #a39aa9;
+  --line: rgba(255,255,255,.09);
+  --pink: #f17eb6;
+  --purple: #bd72ef;
+  --green: #b7f28a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Manrope, Arial, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 82% 12%,rgba(190,93,190,.13),transparent 32%),
+    radial-gradient(ellipse at 4% 40%,rgba(239,111,170,.08),transparent 27%);
+  z-index: -1;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+.wrap {
+  width: min(1160px,calc(100% - 48px));
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: rgba(12,10,16,.82);
+  backdrop-filter: blur(18px);
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+}
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 11px;
+  background: linear-gradient(135deg,var(--pink),var(--purple));
+  display: grid;
+  place-items: center;
+  color: #1b101a;
+  font-size: 18px;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 40px;
+}
+
+nav a {
+  font-size: 12px;
+  color: #c7bdcb;
+  padding: 10px 17px;
+  border-radius: 30px;
+  transition: .2s;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--pink);
+  color: #1b101a;
+  font-weight: 800;
+}
+
+.header-right {
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status {
+  width: 7px;
+  height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+}
+
+/* HERO */
+
+.hero {
+  padding: 94px 0 88px;
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 800;
+}
+
+h1 {
+  font-size: clamp(48px,7.4vw,88px);
+  line-height: .99;
+  letter-spacing: -6px;
+  margin: 22px 0;
+  font-weight: 800;
+}
+
+h1 span {
+  background: linear-gradient(100deg,#f18abb,#b98bf2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-copy {
+  max-width: 475px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 30px;
+  background: linear-gradient(100deg,#f18abb,#c17ce9);
+  color: #1c101a;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.hero-note {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* HERO GRAPHICS */
+
+.hero-art {
+  height: 340px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.orbit {
+  width: 280px;
+  height: 280px;
+  border: 1px solid #f18abb55;
+  border-radius: 50%;
+  position: absolute;
+  transform: rotate(-24deg);
+}
+
+.orbit::before,
+.orbit::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #b97bec55;
+  border-radius: 50%;
+  inset: 25px -28px;
+}
+
+.orbit::after {
+  inset: 65px -50px;
+}
+
+.glass-card {
+  width: min(350px,90%);
+  height: 230px;
+  border: 1px solid #ffffff26;
+  border-radius: 25px;
+  background: linear-gradient(140deg,#2b2031dd,#17131de8);
+  box-shadow: 0 22px 70px rgba(0,0,0,.28);
+  transform: rotate(-7deg);
+  padding: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-top {
+  display: flex;
+  justify-content: space-between;
+  color: #bfb4c5;
+  font-size: 10px;
+}
+
+.glass-dot {
+  display: flex;
+  gap: 4px;
+}
+
+.glass-dot i {
+  width: 6px;
+  height: 6px;
+  background: var(--pink);
+  border-radius: 50%;
+}
+
+.fake-window {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+.fake-window strong {
+  font-size: 26px;
+}
+
+.fake-window small {
+  color: #aaa0b0;
+  font-size: 9px;
+}
+
+.fake-chart {
+  height: 90px;
+  border-radius: 14px;
+  background: linear-gradient(150deg,#f18abb33,#b77bed22);
+  overflow: hidden;
+}
+
+.fake-chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.float-chip {
+  position: absolute;
+  z-index: 2;
+  padding: 12px 15px;
+  border: 1px solid #ffffff20;
+  border-radius: 14px;
+  background: #211a29;
+  color: #f6eaf5;
+  font-size: 10px;
+}
+
+.float-chip.one {
+  right: 0;
+  top: 42px;
+  transform: rotate(7deg);
+}
+
+.float-chip.two {
+  left: 0;
+  bottom: 32px;
+  transform: rotate(-7deg);
+}
+
+/* PROJECTS */
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 25px 0;
+  border-top: 1px solid var(--line);
+}
+
+h2 {
+  font-size: 34px;
+  letter-spacing: -1.7px;
+  margin: 0;
+}
+
+.section-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 7px;
+}
+
+.filters {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.filter {
+  border: 1px solid var(--line);
+  background: #ffffff05;
+  color: #bcb2c2;
+  border-radius: 30px;
+  padding: 9px 14px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.filter:hover,
+.filter.active {
+  background: var(--pink);
+  color: #21121c;
+  border-color: var(--pink);
+  font-weight: 800;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 18px;
+  padding-bottom: 100px;
+}
+
+.project {
+  border: 1px solid var(--line);
+  background: linear-gradient(150deg,#19151f,#120f16);
+  border-radius: 19px;
+  overflow: hidden;
+  transition: .25s;
+  cursor: pointer;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  border-color: #f18abb77;
+  box-shadow: 0 18px 45px #0005;
+}
+
+.preview {
+  height: 205px;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-label {
+  position: absolute;
+  top: 13px;
+  left: 14px;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #ffffff99;
+  z-index: 2;
+}
+
+.project-info {
+  padding: 17px 18px 19px;
+}
+
+.project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.project h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.tag {
+  font-size: 8px;
+  color: #f1a4ca;
+  border: 1px solid #f18abb44;
+  padding: 5px 8px;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+.project p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 9px 0 0;
+}
+
+.project-foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  color: #8e8494;
+  font-size: 9px;
+}
+
+.arrow {
+  color: var(--pink);
+  font-size: 15px;
+}
+
+/* ABOUT */
+
+.about {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(110deg,#1a1520,#17121b);
+  padding: 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 90px;
+}
+
+.about h2 {
+  font-size: 30px;
+  line-height: 1.15;
+  max-width: 360px;
+}
+
+.about p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: 440px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.skills span {
+  font-size: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  color: #d9cddb;
+  background: #ffffff04;
+}
+
+.skill-title {
+  font-size: 10px;
+  color: var(--pink);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 23px 0 28px;
+  color: #766d7b;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #07060bd9;
+  backdrop-filter: blur(12px);
+  display: none;
+  place-items: center;
+  padding: 20px;
+  z-index: 30;
+}
+
+.modal.show {
+  display: grid;
+}
+
+.modal-box {
+  width: min(520px,100%);
+  background: #1a1520;
+  border: 1px solid #ffffff22;
+  border-radius: 22px;
+  padding: 28px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 18px;
+  top: 16px;
+  background: #ffffff10;
+  border: 1px solid var(--line);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.modal-box h3 {
+  font-size: 25px;
+  margin: 15px 0 8px;
+}
+
+.modal-box p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.modal-kicker {
+  font-size: 9px;
+  color: var(--pink);
+  letter-spacing: 1.5px;
+}
+
+/* ADAPTIVE */
+
+@media(max-width:850px) {
+  .projects {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .hero {
+    gap: 20px;
+  }
+
+  .hero-art {
+    transform: scale(.9);
+  }
+}
+
+@media(max-width:620px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+
+  header {
+    height: 68px;
+  }
+
+  .header-right {
+    display: none;
+  }
+
+  nav {
+    gap: 0;
+  }
+
+  nav a {
+    padding: 9px 10px;
+    font-size: 10px;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 65px 0 45px;
+    gap: 5px;
+  }
+
+  h1 {
+    letter-spacing: -3.5px;
+  }
+
+  .hero-art {
+    height: 270px;
+    transform: scale(.88);
+    margin-top: -5px;
+  }
+
+  .section-head {
+    align-items: start;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  h2 {
+    font-size: 29px;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-bottom: 65px;
+  }
+
+  .preview {
+    height: 220px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 25px;
+    margin-bottom: 60px;
+  }
+
+  .about h2 {
+    font-size: 28px;
+  }
+
+  footer {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<header>
+  <a class="brand" href="#home">
+    <span class="brand-mark">✦</span> PORTFOLIO
+  </a>
+
+  <nav>
+    <a class="active" href="#home">Главная</a>
+    <a href="#projects">Проекты</a>
+    <a href="#about">Обо мне</a>
+    <a href="#skills">Навыки</a>
+  </nav>
+
+  <div class="header-right">
+    <span class="status"></span>
+    Доступен для проектов
+  </div>
+</header>
+
+<main>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+
+<section class="hero" id="home">
+
+  <div>
+    <div class="eyebrow">Портфолио · Web & UI/UX</div>
+
+    <h1>
+      Создаю<br>
+      <span>цифровой</span><br>
+      опыт.
+    </h1>
+
+    <p class="hero-copy">
+      Разрабатываю современные сайты и интерфейсы,
+      в которых визуальная идея сочетается с удобством.
+      Здесь собраны концепты вымышленных брендов
+      и цифровых продуктов.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn" href="#projects">
+        Смотреть проекты <b>↗</b>
+      </a>
+      <span class="hero-note">Дизайн · Интерфейсы · Веб</span>
+    </div>
+  </div>
+
+  <div class="hero-art" aria-hidden="true">
+    <div class="orbit"></div>
+
+    <div class="glass-card">
+      <div class="glass-top">
+        <span class="glass-dot">
+          <i></i><i></i><i></i>
+        </span>
+        <span>CREATIVE / 2026</span>
+      </div>
+
+      <div class="fake-window">
+        <div>
+          <small>DESIGN SYSTEM</small><br>
+          <strong>Ideas<br>into reality.</strong><br>
+          <small>Digital experiences</small>
+        </div>
+
+        <div class="fake-chart">
+          <svg viewBox="0 0 150 90" preserveAspectRatio="none">
+            <path d="M0 75 C20 68 22 35 43 48 S70 65 85 37 S112 48 150 8"
+              fill="none" stroke="#f18abb" stroke-width="3"/>
+            <path d="M0 75 C20 68 22 35 43 48 S70 65 85 37 S112 48 150 8 L150 90 L0 90Z"
+              fill="#f18abb" opacity=".13"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="float-chip one">✦ UI / UX DESIGN</div>
+    <div class="float-chip two">✧ THINK · CREATE · BUILD</div>
+  </div>
+
+</section>
+
+<!-- ПРОЕКТЫ -->
+
+<section id="projects">
+
+  <div class="section-head">
+    <div>
+      <h2>Концепты проектов</h2>
+      <div class="section-sub">
+        Шесть новых учебных концепций для портфолио
+      </div>
+    </div>
+    <span class="section-sub">01 — 06 / 2026</span>
+  </div>
+
+  <div class="filters">
+    <button class="filter active" data-filter="all">Все проекты</button>
+    <button class="filter" data-filter="web">Веб-дизайн</button>
+    <button class="filter" data-filter="app">Приложения</button>
+    <button class="filter" data-filter="brand">Брендинг</button>
+  </div>
+
+  <div class="projects">
+
+    <!-- NOVA -->
+
+    <article class="project"
+      data-category="app"
+      data-title="NOVA — финансы под контролем"
+      data-desc="Концепция мобильного финансового приложения. Главный экран показывает баланс, расходы по категориям и историю операций. Акцент — на ясной иерархии данных, спокойной палитре и простых сценариях.">
+
+      <div class="preview" style="background:linear-gradient(140deg,#172b39,#101821)">
+        <span class="preview-label">NOVA / FINANCE APP</span>
+
+        <div style="width:180px;background:#f5f5f1;color:#1d2930;border-radius:15px;padding:15px;box-shadow:0 15px 35px #0006;transform:rotate(-4deg)">
+          <div style="display:flex;justify-content:space-between;font-size:8px;font-weight:800">
+            <span>nova.</span><span>•••</span>
+          </div>
+
+          <div style="font-size:8px;color:#68747b;margin-top:17px">
+            Общий баланс
+          </div>
+
+          <b style="font-size:24px;letter-spacing:-1px">₽ 248 560</b>
+
+          <div style="height:54px;margin-top:12px;background:linear-gradient(135deg,#c9e8d6,#e4f0e8);border-radius:9px;overflow:hidden">
+            <svg viewBox="0 0 180 54" width="100%" height="100%">
+              <path d="M0 43 Q25 40 39 24 T75 29 T110 13 T145 20 T180 4"
+                fill="none" stroke="#398e70" stroke-width="2.5"/>
+            </svg>
+          </div>
+
+          <div style="display:flex;gap:7px;margin-top:12px">
+            <i style="height:24px;flex:1;background:#e9ece9;border-radius:6px"></i>
+            <i style="height:24px;flex:1;background:#e9ece9;border-radius:6px"></i>
+            <i style="height:24px;flex:1;background:#e9ece9;border-radius:6px"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-info">
+        <div class="project-top">
+          <h3>NOVA Finance</h3>
+          <span class="tag">APP DESIGN</span>
+        </div>
+        <p>Финансовое приложение с аналитикой расходов и удобным управлением бюджетом.</p>
+        <div class="project-foot">
+          <span>Мобильный интерфейс</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- MONO -->
+
+    <article class="project"
+      data-category="web"
+      data-title="MONO — магазин предметного дизайна"
+      data-desc="Интернет-магазин предметов для дома с редакционной подачей. Крупные заголовки, свободная сетка, карточки коллекций и сдержанная натуральная палитра создают ощущение современного дизайн-шоурума.">
+
+      <div class="preview" style="background:#e9e5dc;color:#25241f">
+        <span class="preview-label" style="color:#656158">MONO / OBJECTS FOR LIVING</span>
+
+        <div style="width:90%;height:145px;background:#f8f6f0;padding:13px;box-shadow:0 12px 30px #514b3b22">
+          <div style="display:flex;justify-content:space-between;font-size:8px;font-weight:800;letter-spacing:1px">
+            <span>MONO</span><span>SHOP　STORY　◎</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px">
+            <div>
+              <div style="font-size:19px;line-height:1.05;font-family:Georgia">
+                Objects<br>with soul.
+              </div>
+              <small style="font-size:7px;color:#777">A collection for slow living</small>
+            </div>
+
+            <div style="background:#d6c9b6;display:grid;place-items:center">
+              <div style="width:43px;height:60px;background:linear-gradient(90deg,#7f7565,#c2b49c,#766b5d);border-radius:7px 7px 12px 12px;box-shadow:8px 7px 0 #b6a991"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-info">
+        <div class="project-top">
+          <h3>MONO Objects</h3>
+          <span class="tag">E-COMMERCE</span>
+        </div>
+        <p>Минималистичный интернет-магазин декора и предметов для дома.</p>
+        <div class="project-foot">
+          <span>Интернет-магазин</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- PACE -->
+
+    <article class="project"
+      data-category="app"
+      data-title="PACE — фитнес и привычки"
+      data-desc="Мобильный продукт для тренировок и формирования привычек. На главном экране — недельная активность, цель на день и быстрый старт тренировки. Яркий лаймовый акцент помогает выделять ключевые действия.">
+
+      <div class="preview" style="background:#d8edb9;color:#1b2b20">
+        <span class="preview-label" style="color:#52664b">PACE / MOVE BETTER</span>
+
+        <div style="width:160px;background:#18241e;color:#f5f7ee;border-radius:19px;padding:14px;transform:rotate(5deg);box-shadow:0 15px 35px #18241e44">
+          <div style="font-size:8px;display:flex;justify-content:space-between">
+            <b>pace.</b><span>● ● ●</span>
+          </div>
+
+          <div style="margin-top:15px;font-size:8px;color:#a5b49f">
+            ПОНЕДЕЛЬНИК, 04 МАЯ
+          </div>
+
+          <div style="font-size:21px;font-weight:800;line-height:1.05;margin-top:5px">
+            Keep<br>moving.
+          </div>
+
+          <div style="display:flex;gap:8px;align-items:center;margin-top:13px">
+            <div style="width:55px;height:55px;border-radius:50%;border:5px solid #b8f17c;border-right-color:#ffffff22;display:grid;place-items:center;font-size:10px;font-weight:800">
+              72%
+            </div>
+            <div style="font-size:8px;color:#c2cbbd">
+              Цель дня<br><b style="color:white">7 200 шагов</b>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;padding:9px;background:#b8f17c;color:#1b2b20;border-radius:8px;text-align:center;font-size:8px;font-weight:800">
+            НАЧАТЬ ТРЕНИРОВКУ →
+          </div>
+        </div>
+      </div>
+
+      <div class="project-info">
+        <div class="project-top">
+          <h3>PACE Fitness</h3>
+          <span class="tag">APP DESIGN</span>
+        </div>
+        <p>Приложение для тренировок, активности и полезных привычек.</p>
+        <div class="project-foot">
+          <span>Мобильный интерфейс</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- SORA -->
+
+    <article class="project"
+      data-category="brand"
+      data-title="SORA — айдентика кофейни"
+      data-desc="Визуальная система для небольшой городской кофейни. Концепция строится на тёплой палитре, лаконичном логотипе, типографике и упаковке, которую легко адаптировать для стаканов, меню и социальных сетей.">
+
+      <div class="preview" style="background:#e6c6aa;color:#432c25">
+        <span class="preview-label" style="color:#785747">SORA / COFFEE IDENTITY</span>
+
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:116px;height:142px;background:#f5e7d9;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:9px 10px 0 #9d6c54">
+            <div style="font-family:Georgia;font-size:30px;font-style:italic">sora</div>
+            <div style="font-size:6px;letter-spacing:2px;margin-top:4px">COFFEE CLUB</div>
+            <div style="width:38px;height:38px;border:1px solid #9d6c54;border-radius:50%;margin-top:13px;display:grid;place-items:center;font-size:18px">☼</div>
+          </div>
+
+          <div style="width:80px;height:105px;background:#9b6145;border-radius:8px 8px 20px 20px;display:grid;place-items:center;color:#f5e7d9;font-family:Georgia;font-size:21px;font-style:italic;box-shadow:7px 8px 0 #704531">
+            sora
+          </div>
+        </div>
+      </div>
+
+      <div class="project-info">
+        <div class="project-top">
+          <h3>SORA Coffee</h3>
+          <span class="tag">BRANDING</span>
+        </div>
+        <p>Айдентика кофейни: логотип, упаковка, меню и фирменная графика.</p>
+        <div class="project-foot">
+          <span>Фирменный стиль</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- NORTH -->
+
+    <article class="project"
+      data-category="web"
+      data-title="NORTH — сайт путешествий"
+      data-desc="Концепция сайта авторских путешествий. Большой первый экран, подборки направлений и лаконичные карточки туров помогают быстро найти маршрут и вдохновляют на поездку.">
+
+      <div class="preview" style="background:linear-gradient(145deg,#9eb6b1,#334c4d);color:white">
+        <span class="preview-label">NORTH / FIND YOUR WAY</span>
+
+        <div style="width:90%;height:145px;border:1px solid #ffffff88;padding:13px;background:linear-gradient(0deg,#172e2c99,transparent),linear-gradient(130deg,#829d95 0 35%,#d7d1bd 36% 44%,#536e68 45% 65%,#233e3d 66%)">
+          <div style="display:flex;justify-content:space-between;font-size:7px;letter-spacing:1px">
+            <b>NORTH</b><span>PLACES　JOURNAL　ABOUT</span>
+          </div>
+
+          <div style="margin-top:40px;font-size:23px;font-weight:800;line-height:1">
+            Go beyond<br>the usual.
+          </div>
+
+          <div style="font-size:7px;margin-top:5px">
+            Explore the quiet side of the world
+          </div>
+
+          <div style="margin-top:9px;background:#f1eee4;color:#283d39;padding:6px 10px;display:inline-block;font-size:7px">
+            НАЙТИ МАРШРУТ ↗
+          </div>
+        </div>
+      </div>
+
+      <div class="project-info">
+        <div class="project-top">
+          <h3>NORTH Travel</h3>
+          <span class="tag">WEB DESIGN</span>
+        </div>
+        <p>Сайт-путеводитель с подборками необычных маршрутов и мест.</p>
+        <div class="project-foot">
+          <span>Многостраничный сайт</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- LUMEN -->
+
+    <article class="project"
+      data-category="web"
+      data-title="LUMEN — онлайн-обучение"
+      data-desc="Лендинг образовательной платформы с каталогом курсов, блоком преимуществ и понятной структурой обучения. Фиолетовая палитра и модульная сетка создают технологичный, но дружелюбный образ.">
+
+      <div class="preview" style="background:#201a3b;color:#f7f4ff">
+        <span class="preview-label">LUMEN / LEARN SOMETHING NEW</span>
+
+        <div style="width:90%;height:145px;background:#f6f2ff;color:#28203d;padding:12px;border-radius:7px;box-shadow:0 12px 30px #09051688">
+          <div style="display:flex;justify-content:space-between;font-size:7px;font-weight:800">
+            <span>lumen°</span><span>Курсы　О платформе　Войти</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px">
+            <div>
+              <div style="font-size:18px;line-height:1.05;font-weight:800">
+                Учись.<br>Создавай.<br>Расти.
+              </div>
+
+              <small style="font-size:6px;color:#756d82">
+                Навыки для твоего будущего
+              </small>
+
+              <div style="margin-top:9px;background:#8264db;color:white;border-radius:20px;padding:6px 9px;display:inline-block;font-size:6px">
+                Выбрать курс
+              </div>
+            </div>
+
+            <div style="background:#d9cdfb;border-radius:6px;display:grid;place-items:center">
+              <div style="width:65px;height:65px;border-radius:18px;background:linear-gradient(135deg,#9e7df1,#5136a0);transform:rotate(12deg);display:grid;place-items:center;font-size:30px">
+                ✳
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-info">
+        <div class="project-top">
+          <h3>LUMEN Academy</h3>
+          <span class="tag">WEB DESIGN</span>
+        </div>
+        <p>Образовательная платформа с каталогом курсов и личным кабинетом.</p>
+        <div class="project-foot">
+          <span>Лендинг / EdTech</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ОБО МНЕ И НАВЫКИ -->
+
+<section class="about" id="about">
+
+  <div>
+    <div class="eyebrow">Подход к работе</div>
+
+    <h2>Хороший дизайн — это не только красиво.</h2>
+
+    <p>
+      Мне интересно создавать цифровые продукты
+      с продуманной структурой, понятной навигацией
+      и собственным визуальным характером.
+      Каждый концепт — возможность исследовать новую
+      задачу и попробовать другое направление.
+    </p>
+  </div>
+
+  <div id="skills">
+    <div class="skill-title">Мои навыки</div>
+
+    <div class="skills">
+      <span>Figma</span>
+      <span>UI / UX Design</span>
+      <span>Web Design</span>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <span>PORTFOLIO · WEB & UI/UX DESIGN</span>
+  <span>Учебные концепты · 2026</span>
+</footer>
+
+</div>
+
+<!-- ОКНО ОПИСАНИЯ ПРОЕКТА -->
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+
+  <div class="modal-box">
+    <button class="modal-close" id="closeModal">×</button>
+
+    <div class="modal-kicker">PROJECT OVERVIEW</div>
+
+    <h3 id="modalTitle"></h3>
+
+    <p id="modalDesc"></p>
+
+    <div class="section-sub">
+      Концептуальный проект для демонстрации навыков дизайна.
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+// ФИЛЬТРАЦИЯ ПРОЕКТОВ
+
+const filterButtons = document.querySelectorAll('.filter');
+const projectCards = document.querySelectorAll('.project');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+
+    filterButtons.forEach(b => b.classList.remove('active'));
+    button.classList.add('active');
+
+    const filter = button.dataset.filter;
+
+    projectCards.forEach(card => {
+      card.style.display =
+        (filter === 'all' || card.dataset.category === filter)
+        ? ''
+        : 'none';
+    });
+
+  });
+});
+
+// ОКНО С ОПИСАНИЕМ ПРОЕКТА
+
+const modal = document.getElementById('modal');
+const title = document.getElementById('modalTitle');
+const desc = document.getElementById('modalDesc');
+
+projectCards.forEach(card => {
+  card.addEventListener('click', () => {
+
+    title.textContent = card.dataset.title;
+    desc.textContent = card.dataset.desc;
+
+    modal.classList.add('show');
+
+  });
+});
+
+// ЗАКРЫТИЕ ОКНА
+
+function closeModal() {
+  modal.classList.remove('show');
+}
+
+document.getElementById('closeModal')
+  .addEventListener('click', closeModal);
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// АКТИВНЫЙ ПУНКТ МЕНЮ ПРИ ПРОКРУТКЕ
+
+const sections = [...document.querySelectorAll('main section[id]')];
+const navLinks = [...document.querySelectorAll('nav a')];
+
+window.addEventListener('scroll', () => {
+
+  let current = 'home';
+
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 130) {
+      current = section.id;
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.toggle(
+      'active',
+      link.getAttribute('href') === '#' + current
+    );
+  });
+
+});
+
+</script>
+
+</body>
+</html>
+
